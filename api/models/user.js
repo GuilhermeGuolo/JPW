@@ -6,6 +6,6 @@ var UserSchema = new mongoose.Schema({
     senha: {type: Number, required: true}
 })
 
-var Bolsa = mongoose.model('Bolsa', BolsaSchema)
+var User = mongoose.model('User', UserSchema)
 
-module.exports = Bolsa
+module.exports = User

@@ -5,7 +5,7 @@ localhost:3000/inventarios/id?id=5da51b42b6efa10c28ce3fee DELETE
 localhost:3000/inventarios/id?id=5da51b42b6efa10c28ce3fee PUT
 localhost:3000/inventarios/id?id=5da51b42b6efa10c28ce3fee POST
 
-Bolsas?
+Bolsas:
 localhost:3000/bolsas GETALL
 localhost:3000/bolsas/id?id=5da51b42b6efa10c28ce3fee GET
 localhost:3000/bolsas/id?id=5da51b42b6efa10c28ce3fee DELETE

@@ -3,16 +3,17 @@ const router = express.Router();
 const Item = require('../models/item');
 
 
-router.get("/", function(req, res,next){
-    var num = req.query.limit;
-    Item.find(function(err, doc){
+router.get("/", async function(req, res,next){
+    try {
+        const itens = await Item.find({nome: new RegExp(req.query.nome, 'i')})
+        .limit(parseInt(req.query.limit))
+        .exec();
+        
+        res.send(itens)
 
-    if (err) {
-        next(err);
-    } else {
-        res.send(doc)
+    } catch (err) {
+        res.status(404).send("Erro 404!")
     }
-    }).limit(num)
     
 });
 

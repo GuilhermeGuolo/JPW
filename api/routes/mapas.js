@@ -3,17 +3,17 @@ const router = express.Router();
 const Mapa = require('../models/mapa');
 
 
-router.get("/", function(req, res,next){
-    var num = req.query.limit;
-    Mapa.find(function(err, doc){
+router.get("/", async function(req, res,next){
+    try {
+        const mapas = await Mapa.find({nome: new RegExp(req.query.nome, 'i')})
+        .limit(parseInt(req.query.limit))
+        .exec();
+        
+        res.send(mapas)
 
-    if (err) {
-        res.json({ status: "Falha!", message: "Erro" });
-        next(err);
-    } else {
-        res.send(doc)
+    } catch (err) {
+        res.status(404).send("Erro 404!")
     }
-    }).limit(num)
     
 });
 

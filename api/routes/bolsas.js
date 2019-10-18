@@ -3,16 +3,17 @@ const router = express.Router();
 const Bolsa = require('../models/bolsa');
 
 
-router.get("/", function(req, res,next){
-    var num = req.query.limit;
-    Bolsa.find(function(err, doc){
+router.get("/", async function(req, res,next){
+    try {
+        const bolsas = await Bolsa.find({nome: new RegExp(req.query.nome, 'i')})
+        .limit(parseInt(req.query.limit))
+        .exec();
+        
+        res.send(bolsas)
 
-    if (err) {
-        next(err);
-    } else {
-        res.send(doc)
+    } catch (err) {
+        res.status(404).send("Erro 404!")
     }
-    }).limit(num)
     
 });
 
