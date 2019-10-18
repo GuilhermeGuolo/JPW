@@ -7,6 +7,7 @@ const bolsa = require('./api/routes/bolsas')
 const item = require('./api/routes/itens')
 const personagem = require('./api/routes/personagens')
 const mapa = require('./api/routes/mapas')
+const user = require('./api/routes/users')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -16,6 +17,7 @@ app.use('/bolsas',bolsa)
 app.use('/itens',item)
 app.use('/personagens',personagem)
 app.use('/mapas',mapa)
+app.use('/users',user)
 
 app.use(function(req, res, next) {
 	let err = new Error('404-Not found')
