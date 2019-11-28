@@ -24,7 +24,7 @@ app.use('/users',user)
 app.use(function(req, res, next) {
 	let err = new Error('404-Not found')
     err.status = 404
-    next(err)
+    next(err) 
 })
 
 app.use(function(err, req, res, next) {
