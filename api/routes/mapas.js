@@ -39,7 +39,7 @@ router.post("/", function(req, res, next){
             next(err);
         } else {
             //res.send(novoMapa)
-            res.status(200).json({ status: "Successo!", message: "Mapa adicionado!", data: novoMapa });
+            res.status(200).json({ status: "Successo!", message: "Mapa adicionado!" });
         }
         
     })
@@ -54,7 +54,7 @@ router.put("/id", function(req, res, next){
             next(err);
         } else {
             //res.send(novoMapa)
-            res.status(200).json({ status: "Successo!", message: "Mapa atualizado!", data: Mapa });
+            res.status(200).json({ status: "Successo!", message: "Mapa atualizado!" });
         }
     })
 });
@@ -67,7 +67,7 @@ router.delete("/id", function(req, res, next){
             next(err);
         } else {
             //res.send(novoMapa)
-            res.status(200).json({ status: "Successo!", message: "Mapa deletado!", data: Mapa });
+            res.status(200).json({ status: "Successo!", message: "Mapa deletado!" });
         }
     })
 });

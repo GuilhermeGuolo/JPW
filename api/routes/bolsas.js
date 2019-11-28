@@ -31,7 +31,7 @@ router.get("/id", function(req, res,next){
 
 
 router.post("/", function(req, res, next){
-    var novaBolsa = new Bolsa(req.body)
+    var novaBolsa = new Bolsa(req.body)   
     
     // Salva no mongo
     novaBolsa.save(function(err, doc){
@@ -53,7 +53,7 @@ router.put("/id", function(req, res, next){
             next(err);
         } else {
             //res.send(novaBolsa)
-            res.status(200).json({ status: "Successo!", message: "Bolsa atualizado!", data: novaBolsa });
+            res.status(200).json({ status: "Successo!", message: "Bolsa atualizado!" });
         }
     })
 });
@@ -65,7 +65,7 @@ router.delete("/id", function(req, res, next){
             next(err);
         } else {
             //res.send(novaBolsa)
-            res.status(200).json({ status: "Successo!", message: "Bolsa deletada!", data: novaBolsa });
+            res.status(200).json({ status: "Successo!", message: "Bolsa deletada!"});
         }
     })
 });

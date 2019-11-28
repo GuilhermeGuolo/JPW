@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-
+const cors = require('cors')
 const inventario = require('./api/routes/inventarios')
 const bolsa = require('./api/routes/bolsas')
 const item = require('./api/routes/itens')
@@ -11,6 +11,8 @@ const user = require('./api/routes/users')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.json())
+app.use(cors());
 
 app.use('/inventarios',inventario)
 app.use('/bolsas',bolsa)
@@ -32,7 +34,7 @@ app.use(function(err, req, res, next) {
     res.status(500).json({message: "500-Server error"})
 })
 
-app.listen(3000, () =>{
+app.listen(4000, () =>{
     console.log("Rodando...")
 })
 

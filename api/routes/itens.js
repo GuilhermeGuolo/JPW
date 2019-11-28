@@ -8,8 +8,9 @@ router.get("/", async function(req, res,next){
         const itens = await Item.find({nome: new RegExp(req.query.nome, 'i')})
         .limit(parseInt(req.query.limit))
         .exec();
-        
+        console.log(itens)
         res.send(itens)
+       
 
     } catch (err) {
         res.status(404).send("Erro 404!")
